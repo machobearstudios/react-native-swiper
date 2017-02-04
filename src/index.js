@@ -194,14 +194,10 @@ export default class extends Component {
 
     initState.total = props.children ? props.children.length || 1 : 0
 
-    if (state.total === initState.total) {
-      // retain the index
-      initState.index = state.index
-    } else {
-      // reset the index
-      setOffsetInState = true // if the index is reset, go ahead and update the offset in state
-      initState.index = initState.total > 1 ? Math.min(props.index, initState.total - 1) : 0
-    }
+
+    // reset the index
+    setOffsetInState = true // if the index is reset, go ahead and update the offset in state
+    initState.index = initState.total > 1 ? Math.min(props.index, initState.total - 1) : 0
 
     // Default: horizontal
     initState.dir = props.horizontal === false ? 'y' : 'x'
